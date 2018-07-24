@@ -32,19 +32,47 @@ class ProductTableSeeder extends Seeder
 
         \DB::table('product')->insert(array (
             0 =>
-            array (
-                'id' => 1,
-                'created_at' => '2018-07-24 21:21:00',
-                'updated_at' => '2018-07-24 21:23:03',
-                'image' => 'dada',
-                'title' => 'dada',
-                'description' => 'dadada',
-                'price' => 0.0,
-                'quantity' => 5,
-                'store' => NULL,
-                'brandFree' => 1,
-                'category' => 1,
-            ),
+                [
+                    'id' => 1,
+                    'created_at' => '2018-07-24 21:21:00',
+                    'updated_at' => '2018-07-24 21:23:03',
+                    'image' => 'dada',
+                    'title' => 'dada',
+                    'description' => 'dadada',
+                    'price' => 0.0,
+                    'quantity' => 5,
+                    'store' => NULL,
+                    'brandFree' => 1,
+                    'category' => 1,
+                ],
+            1 =>
+                [
+                    'id' => 2,
+                    'created_at' => '2018-07-24 21:21:00',
+                    'updated_at' => '2018-07-24 21:23:03',
+                    'image' => 'dada',
+                    'title' => 'dada',
+                    'description' => 'dadada',
+                    'price' => 0.0,
+                    'quantity' => 5,
+                    'store' => NULL,
+                    'brandFree' => 1,
+                    'category' => 1,
+                ],
+            2 =>
+                [
+                    'id' => 3,
+                    'created_at' => '2018-07-24 21:21:00',
+                    'updated_at' => '2018-07-24 21:23:03',
+                    'image' => 'dada',
+                    'title' => 'dada',
+                    'description' => 'dadada',
+                    'price' => 0.0,
+                    'quantity' => 5,
+                    'store' => NULL,
+                    'brandFree' => 1,
+                    'category' => 1,
+                ],
         ));
 
         \DB::table('wish')->delete();
@@ -59,6 +87,6 @@ class ProductTableSeeder extends Seeder
                     'user' => 1,
                 ),
         ));
-        
+
     }
 }

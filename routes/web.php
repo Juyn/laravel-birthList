@@ -28,3 +28,7 @@ Route::get('auth/facebook/callback', 'Auth\FacebookController@handleFacebookCall
 
 Route::resource('product', 'ProductController');
 Route::resource('wish', 'WishController');
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});

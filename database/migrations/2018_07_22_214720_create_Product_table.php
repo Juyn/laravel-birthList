@@ -17,7 +17,8 @@ class CreateProductTable extends Migration {
 			$table->smallInteger('quantity')->default('1');
 			$table->string('store', 255)->nullable();
 			$table->boolean('brandFree')->default(1);
-		});
+            $table->integer('category')->unsigned()->index();
+        });
 	}
 
 	public function down()

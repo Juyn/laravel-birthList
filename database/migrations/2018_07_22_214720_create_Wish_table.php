@@ -11,6 +11,7 @@ class CreateWishTable extends Migration {
 			$table->increments('id');
 			$table->timestamps();
 			$table->integer('product')->unsigned()->index();
+			$table->integer('user')->unsigned() ->index();
 		});
 	}
 

@@ -13532,6 +13532,12 @@ a.text-dark:focus {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+body,
+html {
+  height: 100%;
+  width: 100%;
+}
+
 /*---------------------------------------------------------------------- /
 CARDS
 ----------------------------------------------------------------------- */
@@ -13719,5 +13725,52 @@ CARDS
 .card-caption {
   font-weight: 700;
   font-family: "Roboto Slab", "Times New Roman", serif;
+}
+
+/* Landing page */
+
+.fullscreen {
+  height: 100%;
+}
+
+.fullscreen .countdown {
+  width: 100%;
+  height: 100%;
+  background: url("/images/landing.jpg");
+  /* pour anciens Chrome et Safari */
+  background-size: cover;
+  /* version standardisée */
+  color: white;
+}
+
+.fullscreen .countdown .teasing {
+  position: relative;
+  top: 15%;
+  text-transform: uppercase;
+  font-size: 60px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  margin-bottom: 40px;
+  letter-spacing: .13em;
+}
+
+.fullscreen .countdown .teasing h2 {
+  margin-top: 3%;
+}
+
+.fullscreen .countdown .teasing .countdown-label {
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.fullscreen .countdown .teasing .countdown-number {
+  font-size: 124px;
+  line-height: 1;
+  font-weight: 200;
+}
+
+.fullscreen .countdown .row {
+  margin-top: 5%;
 }
 

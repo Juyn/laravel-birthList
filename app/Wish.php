@@ -17,11 +17,11 @@ class Wish extends Model
     public $timestamps = true;
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function product()
     {
-        return $this->hasOne('App\Product');
+        return $this->belongsTo("App\Product");
     }
 
     /**

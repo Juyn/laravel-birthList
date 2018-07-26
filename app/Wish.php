@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property mixed $user
- * @property mixed $product
+ * @property mixed $user_id
+ * @property mixed $product_id
  */
 class Wish extends Model
 {
@@ -19,7 +19,7 @@ class Wish extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function product()
+    public function product_id()
     {
         return $this->belongsTo("App\Product");
     }
@@ -27,7 +27,7 @@ class Wish extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user()
+    public function user_id()
     {
         return $this->belongsTo('App\User');
     }

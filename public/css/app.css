@@ -13774,3 +13774,130 @@ CARDS
   margin-top: 5%;
 }
 
+.fullscreen .button {
+  font-size: 22px;
+  letter-spacing: normal;
+  background: tomato;
+  opacity: 0.6;
+  margin-top: 8%;
+}
+
+.button {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: inline-block;
+  font-family: "Montserrat", "Trebuchet MS", Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  padding: .8em 1.4em;
+  padding-right: 4.7em;
+  background: #009ED8;
+  border: none;
+  color: white;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.button:before,
+.button:after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  padding-top: inherit;
+  padding-bottom: inherit;
+  width: 2.8em;
+  content: "\A0";
+  font-family: 'FontAwesome', sans-serif;
+  font-size: 1.2em;
+  text-align: center;
+  -webkit-transition: .2s;
+  transition: .2s;
+  -webkit-transform-origin: 50% 60%;
+          transform-origin: 50% 60%;
+}
+
+.button:before {
+  background: fadeout(#000, 90%);
+}
+
+.button:hover {
+  background: #0079a5;
+}
+
+.button:active,
+.button:focus {
+  background: #002e3f;
+  outline: none;
+}
+
+.button {
+  min-width: 15em;
+}
+
+.arrow {
+  background: #FE5F55;
+}
+
+.arrow:hover {
+  background: #fe2f22;
+}
+
+.arrow:active,
+.arrow:focus {
+  background: #b90c01;
+}
+
+.arrow:after {
+  content: "\F054";
+}
+
+.arrow:hover:after {
+  -webkit-animation: bounceright .3s alternate ease infinite;
+  animation: bounceright .3s alternate ease infinite;
+}
+
+@-webkit-keyframes bounceright {
+  from {
+    -webkit-transform: translateX(0);
+  }
+
+  to {
+    -webkit-transform: translateX(3px);
+  }
+}
+
+@-webkit-keyframes wiggle {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(30deg);
+  }
+}
+
+@keyframes bounceright {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+
+  to {
+    -webkit-transform: translateX(3px);
+            transform: translateX(3px);
+  }
+}
+
+@keyframes wiggle {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(30deg);
+            transform: rotate(30deg);
+  }
+}
+

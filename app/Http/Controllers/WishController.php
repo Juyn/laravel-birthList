@@ -8,6 +8,7 @@ use App\Wish;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\URL;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class WishController extends Controller
@@ -72,8 +73,8 @@ class WishController extends Controller
         }
 
         $wish = new Wish();
-        $wish->user = $user->id;
-        $wish->product = $product->id;
+        $wish->user_id = $user->id;
+        $wish->product_id = $product->id;
         $wish->save();
 
         $notification = [
@@ -81,7 +82,7 @@ class WishController extends Controller
             'alert-type' => 'success',
         ];
 
-        return redirect('home')->with($notification);
+        return redirect(URL::previous())->with($notification);
     }
 
     /**

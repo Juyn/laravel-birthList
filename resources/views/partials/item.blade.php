@@ -51,12 +51,12 @@
                 </form>
             </div>
             <div class="modal-footer">
-                @if ($context === 'listing')
-                    <button type="button" class="btn btn-secondary float-left" data-dismiss="modal">Annuler</button>
-                    <button type="button" class="btn btn-primary float-right">Réserver</button>
-                @elseif($context === 'wishes')
+                {{--@if ($context === 'listing')--}}
+                    {{--<button type="button" class="btn btn-secondary float-left" data-dismiss="modal">Annuler</button>--}}
+                    {{--<button type="button" class="btn btn-primary float-right">Réserver</button>--}}
+{{--                @elseif($context === 'wishes')--}}
                     <button type="button" class="btn btn-secondary float-left" data-dismiss="modal">Supprimer</button>
-                @endif
+                {{--@endif--}}
             </div>
         </div>
     </div>

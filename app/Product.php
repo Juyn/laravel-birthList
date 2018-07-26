@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Product extends Model
 {
-    protected $table = 'Product';
+    protected $table = 'product';
     public $timestamps = true;
 
     /**

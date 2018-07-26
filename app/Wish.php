@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Wish extends Model
 {
-    protected $table = 'Wish';
+    protected $table = 'wish';
     public $timestamps = true;
 
     /**

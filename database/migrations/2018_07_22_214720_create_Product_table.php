@@ -7,7 +7,7 @@ class CreateProductTable extends Migration {
 
 	public function up()
 	{
-		Schema::create('Product', function(Blueprint $table) {
+		Schema::create('product', function(Blueprint $table) {
 			$table->increments('id');
 			$table->timestamps();
 			$table->string('image', 255)->nullable();
@@ -23,6 +23,6 @@ class CreateProductTable extends Migration {
 
 	public function down()
 	{
-		Schema::drop('Product');
+		Schema::drop('product');
 	}
 }

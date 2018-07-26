@@ -83,8 +83,8 @@ class ProductTableSeeder extends Seeder
                     'id' => 1,
                     'created_at' => '2018-07-24 21:25:33',
                     'updated_at' => '2018-07-24 21:25:33',
-                    'product' => 1,
-                    'user' => 1,
+                    'product_id' => 1,
+                    'user_id' => 1,
                 ),
         ));
 

@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property mixed $user_id
- * @property mixed $product_id
+ * @property int $user_id
+ * @property int  $product_id
+ * @property int quantity
  */
 class Wish extends Model
 {

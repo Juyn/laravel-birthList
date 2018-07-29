@@ -13536,6 +13536,7 @@ body,
 html {
   height: 100%;
   width: 100%;
+  background: #5f727f;
 }
 
 /*---------------------------------------------------------------------- /
@@ -13687,6 +13688,17 @@ CARDS
 
 .card-product {
   margin-top: 30px;
+}
+
+.flex-card-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
+  height: 100%;
 }
 
 .card-product .btn-simple.btn-just-icon {
@@ -13855,6 +13867,38 @@ CARDS
 .arrow:hover:after {
   -webkit-animation: bounceright .3s alternate ease infinite;
   animation: bounceright .3s alternate ease infinite;
+}
+
+.product-detail .title {
+  color: white;
+  text-transform: uppercase;
+  font-size: 40px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  margin-bottom: 40px;
+  letter-spacing: .13em;
+}
+
+.product-detail .square {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+}
+
+.product-detail img {
+  position: absolute;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.card {
+  border-radius: 1px;
 }
 
 @-webkit-keyframes bounceright {

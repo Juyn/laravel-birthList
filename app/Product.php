@@ -2,17 +2,18 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Eloquent;
 
 /**
- * @property mixed $categories
  * @property int $id
  * @property int $availableQuantity
  * @property string $title
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
+ * @property array $wishes
+ * @property mixed $category
  */
-class Product extends Model
+class Product extends Eloquent
 {
     protected $table = 'product';
     public $timestamps = true;
@@ -21,8 +22,15 @@ class Product extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function categories()
+    public function category()
     {
-        return $this->belongsTo('App\Category');
+        return $this->belongsTo(Category::class);
+    }
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function wishes()
+    {
+        return $this->hasMany(Wish::class, 'product_id');
     }
 }

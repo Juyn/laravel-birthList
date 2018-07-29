@@ -13,6 +13,12 @@ class CreateForeignKeys extends Migration {
 						->onDelete('cascade')
 						->onUpdate('no action');
 		});
+
+		Schema::table('product', function(Blueprint $table) {
+			$table->foreign('category')->references('id')->on('category')
+						->onDelete('cascade')
+						->onUpdate('no action');
+		});
 	}
 
 	public function down()

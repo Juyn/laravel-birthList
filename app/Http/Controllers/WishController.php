@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\URL;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
+use Symfony\Component\Routing\Exception\InvalidParameterException;
 
 class WishController extends Controller
 {
@@ -40,16 +41,6 @@ class WishController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param Request $request
@@ -65,16 +56,27 @@ class WishController extends Controller
             throw new AuthenticationException("You need to be logged in to be authorized to reserved a product");
         }
 
-        $productId =  1;
+        $productId =  $request->get('productId');
+        if (is_null($productId)) {
+            throw new InvalidParameterException("Please provide a valid product id");
+        }
+
         $product = Product::findOrFail($productId);
         $quantity = $request->get('quantity') ?? 1;
         if (is_null($productId) || $quantity === 0) {
             throw new BadRequestHttpException("Please provide a valid form");
         }
 
+        $availableQuantity = $product->quantity - ProductController::getReservedQuantity($productId);
+
+        if ($availableQuantity < 1) {
+            throw new BadRequestHttpException(sprintf("Product with ID %d is no longer available", $productId));
+        }
+
         $wish = new Wish();
         $wish->user_id = $user->id;
         $wish->product_id = $product->id;
+        $wish->quantity = $quantity;
         $wish->save();
 
         $notification = [
@@ -88,19 +90,18 @@ class WishController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
+     *
      * @return Response
      */
     public function show($id)
     {
-
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return Response
      */
     public function edit($id)
     {
@@ -111,7 +112,6 @@ class WishController extends Controller
      * Update the specified resource in storage.
      *
      * @param  int  $id
-     * @return Response
      */
     public function update($id)
     {
@@ -122,7 +122,6 @@ class WishController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return Response
      */
     public function destroy($id)
     {
@@ -130,5 +129,3 @@ class WishController extends Controller
     }
 
 }
-
-?>

@@ -43,7 +43,7 @@ class ProductTableSeeder extends Seeder
                     'quantity' => 5,
                     'store' => NULL,
                     'brandFree' => 1,
-                    'category' => 1,
+                    'category_id' => 1,
                 ],
             1 =>
                 [
@@ -57,7 +57,7 @@ class ProductTableSeeder extends Seeder
                     'quantity' => 5,
                     'store' => NULL,
                     'brandFree' => 1,
-                    'category' => 1,
+                    'category_id' => 1,
                 ],
             2 =>
                 [
@@ -71,7 +71,7 @@ class ProductTableSeeder extends Seeder
                     'quantity' => 5,
                     'store' => NULL,
                     'brandFree' => 1,
-                    'category' => 1,
+                    'category_id' => 1,
                 ],
         ));
 

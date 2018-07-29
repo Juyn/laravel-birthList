@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
+        <div class="flex-card-container">
             @foreach ($products as $product)
                 @include('partials.item', [' product' => $product])
             @endforeach

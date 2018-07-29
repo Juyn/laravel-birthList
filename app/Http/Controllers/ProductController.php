@@ -18,84 +18,25 @@ class ProductController extends Controller
      */
   public function index(Request $request)
   {
-      $products =  (new Product)->where('quantity', '>', 0)->get();
-      if (!empty($request->get('category'))) {
-          //todo create a foreign key for category (oh, and create category)
-          $products = $products->where('brandFree', '=', '0');
-      }
-      $wishes = (new Wish)->whereIn('product_id',  $products->pluck('id'))->get();
+      $products =  (new Product)->where('quantity', '>', 0)->with(['wishes', 'category'])->get();
 
+      /** @var Product $product */
       foreach ($products as $product) {
-          $w = $wishes->whereIn('product_id', $product->id)->sum(function ($wish) { return $wish->quantity;});
-          $quantity = $w - $product->quantity;
+          $quantity = $product->quantity - $product->wishes()->sum('quantity');
           $product->availableQuantity = ($quantity > 0) ? $quantity : 0 ;
       }
-
       return view('listing', ['products' => $products]);
   }
 
-  /**
-   *
-   * Show the form for creating a new resource.
-   *
-   * @return Response
-   */
-  public function create()
+    /**
+     * Get the quantity of article reserved for its ID
+     *
+     * @param int $productId
+     *
+     * @return int
+     */
+  public static function getReservedQuantity(int $productId): int
   {
-    
-  }
-
-  /**
-   * Store a newly created resource in storage.
-   *
-   * @return Response
-   */
-  public function store(Request $request)
-  {
-
-  }
-
-  /**
-   * Display the specified resource.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function show($id)
-  {
-    
-  }
-
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function edit($id)
-  {
-    
-  }
-
-  /**
-   * Update the specified resource in storage.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function update($id)
-  {
-    
-  }
-
-  /**
-   * Remove the specified resource from storage.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function destroy($id)
-  {
-    
+      return (new Wish)->where('product_id', '=', $productId)->get()->sum(function ($wish) { return $wish->quantity;});
   }
 }

@@ -32,12 +32,9 @@ class WishController extends Controller
 
             return redirect('login')->with($notification);
         }
-
         $wishes = Wish::all()->where('user_id', '=', $user->id);
 
-
         return view('wishes', ['wishes' => $wishes]);
-
     }
 
     /**
@@ -85,37 +82,6 @@ class WishController extends Controller
         ];
 
         return redirect(URL::previous())->with($notification);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return Response
-     */
-    public function show($id)
-    {
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     */
-    public function edit($id)
-    {
-
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int  $id
-     */
-    public function update($id)
-    {
-
     }
 
     /**

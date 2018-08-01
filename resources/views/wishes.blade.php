@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             @foreach ($wishes as $wish)
-                @include('partials.item', ['product' => $wish->product, 'context' => 'wishes']);
+                @include('partials.wish', ['product' => $wish->product])
             @endforeach
         </div>
     </div>

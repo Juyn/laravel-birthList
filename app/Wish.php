@@ -20,7 +20,7 @@ class Wish extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function product_id()
+    public function product()
     {
         return $this->belongsTo("App\Product");
     }
@@ -28,7 +28,7 @@ class Wish extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user_id()
+    public function user()
     {
         return $this->belongsTo('App\User');
     }

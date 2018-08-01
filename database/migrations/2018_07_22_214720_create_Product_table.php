@@ -15,7 +15,7 @@ class CreateProductTable extends Migration {
 			$table->text('description');
 			$table->float('price', 0.00);
 			$table->smallInteger('quantity')->default('1');
-			$table->string('store', 255)->nullable();
+			$table->text('link')->nullable();
 			$table->boolean('brandFree')->default(1);
             $table->integer('category_id')->unsigned()->index();
         });

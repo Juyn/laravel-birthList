@@ -13555,6 +13555,14 @@ CARDS
           box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 
+.item.disabledItem {
+  opacity: 0.7;
+}
+
+.item.disabledItem .btn {
+  visibility: hidden;
+}
+
 .card .card-image {
   height: 60%;
   position: relative;
@@ -13569,9 +13577,13 @@ CARDS
 
 .card .card-image img {
   width: 100%;
-  height: 100%;
+  min-height: 250px;
   border-radius: 6px;
   pointer-events: none;
+  -o-object-fit: cover;
+     object-fit: cover;
+  overflow: hidden;
+  max-height: 250px;
 }
 
 .card .card-image .card-caption {
@@ -13724,6 +13736,19 @@ CARDS
   text-align: center;
 }
 
+.card .price .btn:focus {
+  -webkit-box-shadow: 0 0 0 0.2rem #5f727f;
+          box-shadow: 0 0 0 0.2rem #5f727f;
+}
+
+.card .price .btn {
+  background: #4b6a80;
+}
+
+.card .price btn.btn-primary {
+  border-color: transparent;
+}
+
 .card-description p {
   color: #888;
 }
@@ -13732,6 +13757,9 @@ CARDS
 .card-caption a {
   color: #333;
   text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card-caption {

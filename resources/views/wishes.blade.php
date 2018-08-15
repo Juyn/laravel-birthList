@@ -3,9 +3,11 @@
 @section('content')
     <div class="container">
         <div class="row">
-            @foreach ($wishes as $wish)
-                @include('partials.wish', ['product' => $wish->product])
-            @endforeach
+            @forelse($wishes as $wish)
+                @include('partials.wish', ['wish' => $wish])
+            @empty
+                <p class="empty">Vous n'avez pas encore réséver de produit !</p>
+            @endforelse
         </div>
     </div>
 @endsection

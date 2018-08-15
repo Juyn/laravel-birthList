@@ -26,8 +26,12 @@
 </head>
 <body>
 <div id="app">
-    @include('partials.nav')
+    @if (Auth::check())
+        @include('partials.nav')
+    @else
+        @include('partials.nav_not_logged_in')
 
+    @endif
     <main class="py-4">
         @yield('content')
     </main>
@@ -35,25 +39,25 @@
 
 <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function(){
-        @if(Session::has('message'))
-            var type = "{{ Session::get('alert-type', 'info') }}";
-            switch(type){
-                case 'info':
-                    toastr.info("{{ Session::get('message') }}");
-                    break;
+                @if(Session::has('message'))
+        var type = "{{ Session::get('alert-type', 'info') }}";
+        switch(type){
+            case 'info':
+                toastr.info("{{ Session::get('message') }}");
+                break;
 
-                case 'warning':
-                    toastr.warning("{{ Session::get('message') }}");
-                    break;
+            case 'warning':
+                toastr.warning("{{ Session::get('message') }}");
+                break;
 
-                case 'success':
-                    toastr.success("{{ Session::get('message') }}");
-                    break;
+            case 'success':
+                toastr.success("{{ Session::get('message') }}");
+                break;
 
-                case 'error':
-                    toastr.error("{{ Session::get('message') }}");
-                    break;
-            }
+            case 'error':
+                toastr.error("{{ Session::get('message') }}");
+                break;
+        }
         @endif
 
         $('#itemModal').on('show.bs.modal', function (event) {
@@ -64,12 +68,31 @@
             var modal = $(this);
             modal.find('.modal-title').text("Réserver l'article  " + title);
             modal.find('.modal-body input.productId').val(id)
-            modal.find('.modal-body .quantity').vtal(quantity)
+            modal.find('.modal-body .quantity').val(quantity)
         });
 
         $(document).ready(function() {
-            $('#filterCategories').multiselect({
-                includeSelectAllOption: true, // add select all option as usual
+            $('.filters a').click(function handler() {
+                $(this).unbind('click');
+                $(this).toggleClass(['active', 'badge-secondary', 'badge-primary']);
+                var filters =  [];
+
+                $('.filters a.active').each(function() {
+                    filters.push($(this).data('id'));
+                });
+
+                var e = this;
+                $.ajax({
+                    url: "",
+                    type: "get",
+                    data: {filters: filters},
+                    success: function(response) {
+                        $('.listing').stop().fadeOut('fast').hide().html(response.html).fadeIn('slow');
+                    },
+                    complete: function () {
+                        $(e).bind('click', handler);
+                    }
+                });
             });
         });
     });

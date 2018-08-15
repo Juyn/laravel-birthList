@@ -14,6 +14,15 @@ use Symfony\Component\Routing\Exception\InvalidParameterException;
 
 class WishController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * Display a listing of the resource.
@@ -87,10 +96,18 @@ class WishController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     *
+     * @throws \Exception
      */
-    public function destroy($id)
+    public function destroy(int $id)
     {
+       $wish = Wish::findOrFail($id);
+       $wish->delete();
+
+       return redirect()->route('wishes.index');
 
     }
 

@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Auth;
 use Grimthorr\LaravelToast\Toast;
+use Hash;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use TCG\Voyager\Models\Role;
 
 class LoginController extends Controller
 {
@@ -29,7 +31,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/product';
 
     /**
      * Create a new controller instance.
@@ -50,9 +52,28 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $user = User::all()->where('email', '=', $request->get('email'))->first();
+
+        if ($request->input('admin')) {
+            if (!Hash::check($request->input('password'), $user->password)) {
+            $notification = [
+                    'message' => 'Bad, bad, bad admin !',
+                    'alert-type' => 'error',
+                ];
+
+                return view('auth.login_admin', ['email' => $user->email])->with($notification);
+            }
+        } else {
+            /** @var Role $role */
+            foreach ($user->roles as $role) {
+                if (in_array('admin', $role->attributesToArray())) {
+                    return view('auth.login_admin', ['email' => $user->email]);
+                }
+            }
+        }
+
         if ($user instanceof User && Auth::loginUsingId($user->id)) {
             Auth::loginUsingId($user->id);
-            return redirect('home');
+            return redirect('/product');
         }
 
         $notification = [
@@ -60,6 +81,6 @@ class LoginController extends Controller
             'alert-type' => 'error',
         ];
 
-        return redirect('login')->with($notification);
+        return redirect($this->redirectTo)->with($notification);
     }
 }

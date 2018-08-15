@@ -3,20 +3,20 @@
 @section('content')
     <div class="container">
         <div class="filters card">
-            <h2>Filtres</h2>
-            <div id="example-optionClass-container">
-                <select id="filterCategories" multiple="multiple">
+            <h2>Categories</h2>
+            <div id="filters">
                     @foreach ($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    <a href="#" data-id="{{ $category->id }}" class="filter input badge-secondary">{{ $category->name }}</a>
                     @endforeach
-                </select>
             </div>
         </div>
 
-        <div class="flex-card-container">
-            @foreach ($products as $product)
+        <div class="flex-card-container listing">
+            @forelse($products as $product)
                 @include('partials.item', [' product' => $product, 'customText' => $customText])
-            @endforeach
+            @empty
+                <p class="empty">Oups ! Il n'y a plus aucun produit à réserver ! </p>
+            @endforelse
         </div>
     </div>
 @endsection

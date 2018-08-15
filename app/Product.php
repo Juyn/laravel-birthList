@@ -11,7 +11,8 @@ use Eloquent;
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property array $wishes
- * @property mixed $category
+ * @property int $category
+ * @property int $quantity
  */
 class Product extends Eloquent
 {

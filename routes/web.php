@@ -17,11 +17,6 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('facebook', function () {
     return view('facebook');
 });
-
-Route::get('auth/facebook', 'Auth\FacebookController@redirectToFacebook');
-Route::get('auth/facebook/callback', 'Auth\FacebookController@handleFacebookCallback');
-
-
 Route::resource('product', 'ProductController');
 Route::resource('wishes', 'WishController');
 

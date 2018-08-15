@@ -15,7 +15,17 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Link</a>
+                    @if (Auth::check())
+                        <a class="nav-link  " href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                       document.getElementById('logout-form').submit();">
+                            Se déconnecter
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                            {{ csrf_field() }}
+                        </form>
+                    @endif
                 </li>
             </ul>
         </div>

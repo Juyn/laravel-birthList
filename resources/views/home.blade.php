@@ -3,8 +3,8 @@
 @section('content')
    <div class="countdown">
       <div class="teasing">
-         <h1>Something BIG is coming !</h1>
-         <h2>Explusion de "Mini Nous" prévue dans</h2>
+         <h1>A huuuge event is coming !</h1>
+         <h2>Naissance de "Mini Nous" prévue dans</h2>
          <div class="row col-md-8 offset-2">
             <div class="countdown-item col-sm-3 col-xs-6">
                <div id="countdown-months" class="countdown-number">00</div>

@@ -64,11 +64,11 @@
             var button = $(event.relatedTarget);
             var title = button.data('title');
             var id = button.data('id');
-            var quantity = button.data('quantity');
+            var link = button.data('link');
             var modal = $(this);
-            modal.find('.modal-title').text("Réserver l'article  " + title);
+            modal.find('.modal-title').text("Réserver le cadeau  " + title);
             modal.find('.modal-body input.productId').val(id)
-            modal.find('.modal-body .quantity').val(quantity)
+            modal.find('.modal-body .externalLinkProduct').attr('href', link)
         });
 
         $(document).ready(function() {

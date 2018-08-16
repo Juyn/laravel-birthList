@@ -7,13 +7,13 @@
             <h6 class="category text-rose">
                 {{ $product->category->name }}
             </h6>
+            <div class="text-center">@if ($product->availableQuantity > 0) Bébé a besoin de {{ $product->availableQuantity }} @else Déjà réservé !@endif</div>
             <h4 class="card-caption">
                 <a target="_blank" href="{{ $product->link  }}">{{ $product->title }}</a>
             </h4>
-            <div class="text-center">@if ($product->availableQuantity > 0) Maman en veux: {{ $product->availableQuantity }} @else Déjà réservé !@endif</div><br>
             <div class="price text-center">
-               <h4>{{ $product->price }} €</h4>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#itemModal" data-title="{{ $product->title }}" data-id="{{ $product->id }}" data-quantity="{{ $product->availableQuantity }}">Réserver</button>
+                <h4>{{ $product->price }} €</h4>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#itemModal" data-title="{{ $product->title }}" data-link="{{ $product->link }}" data-id="{{ $product->id }}" data-quantity="{{ $product->availableQuantity }}">Offrir</button>
             </div>
         </div>
     </div>
@@ -23,22 +23,31 @@
     <div class="modal-dialog" role="document">
         {!! Form::open(['route' => 'wishes.store']) !!}
         <div class="modal-content">
+
             <div class="modal-header">
-                <h5 class="modal-title" id="itemModal">Réserver un produit</h5>
+                <h5> C'est trop cool !</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                {!! $customText  !!}
+                <p>
+                    Pour éviter les doublons, nous avons besoin que tu indique aux autres la quantité que tu souhaites offrir.<br/><br/>
+
+                    Et pas de soucis, tu peux voir (et supprimer) ce que tu as réservé via la page <a target="_blank" href="{{ route('wishes.index') }}">"Mes réservations"</a><br/><br/>
+                    <span class="little">PS: Il ne s'agit pas d'un achat, il faut passer par le magasin ou son site Internet (on a mis le lien ci-dessous).</span>
+
+                <div class="text-center">
+                    <a href="#" target="_blank" class="externalLinkProduct little text-center">Voir ou acheter le produit</a><br/><br/>
+                </div>
+                </p>
+                <hr>
                 @csrf
-                <p>D'après la Maman, on pourrait en avoir besoin de <span class="quantity">0</span> encore...</p>
-                {!! Form::label('quantity', 'Tu veux en réserver combien ?') !!}
+                {!! Form::label('quantity', 'Combien souhaites-tu en réserver ?') !!}
                 {!! Form::number('quantity', '1', ['max' => 2, 'min' => 1]) !!}
+
                 {!! Form::hidden('productId', $product->id, ['class' => 'productId']) !!}
-            </div>
-            <div class="modal-footer">
-                {!! Form::submit('Envoyer', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => '']) !!}
+                {!! Form::submit('Enregistrer', ['class' => 'float-right btn btn-secondary', 'data-dismiss' => '']) !!}
                 {!! Form::close() !!}
             </div>
         </div>

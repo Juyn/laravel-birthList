@@ -44,4 +44,9 @@ class User extends \TCG\Voyager\Models\User
 
         return $check;
     }
+
+    public function isAdmin()
+    {
+        return $this->hasRole('admin');
+    }
 }

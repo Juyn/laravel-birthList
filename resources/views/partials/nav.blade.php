@@ -14,18 +14,21 @@
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
+                @if (Auth::check() && Auth::user()->isAdmin())
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ route('voyager.dashboard') }}">Administration</a>
+                    </li>
+                @endif
                 <li class="nav-item active">
-                    @if (Auth::check())
-                        <a class="nav-link  " href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                       document.getElementById('logout-form').submit();">
-                            Se déconnecter
-                        </a>
+                    <a class="nav-link  " href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">
+                        Se déconnecter
+                    </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                            {{ csrf_field() }}
-                        </form>
-                    @endif
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        {{ csrf_field() }}
+                    </form>
                 </li>
             </ul>
         </div>

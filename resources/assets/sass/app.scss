@@ -39,7 +39,7 @@ CARDS
   opacity: 0.7;
 
   .btn {
-     visibility: hidden;
+    visibility: hidden;
   }
 }
 
@@ -408,7 +408,7 @@ CARDS
   }
 
   h2 {
-    margin-bottom: 15px;
+    margin-bottom: 30px;
   }
 
   padding: 5px 15px 30px 16px;
@@ -459,4 +459,17 @@ p.empty {
 
 .loginForm {
   margin-top: 50px;
+}
+
+.little {
+  font-style: italic;
+  font-size: 13px;
+}
+
+form #quantity {
+  width: 50px;
+}
+
+.note {
+  padding: 15px;
 }

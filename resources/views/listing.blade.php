@@ -13,7 +13,7 @@
             </p>
         </div>
         <div class="filters card">
-            <h2>Categories</h2>
+            <h2>Filter par Categorie(s)</h2>
             <div id="filters">
                 @foreach ($categories as $category)
                     <a href="#" data-id="{{ $category->id }}" class="filter input badge-secondary">{{ $category->name }}</a>

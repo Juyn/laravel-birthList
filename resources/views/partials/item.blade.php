@@ -11,7 +11,7 @@
                 @if (!is_null($product->link))
                     <a target="_blank" class="external" href="{{ $product->link  }}">{{ $product->title }} </a>
                 @else
-                    {{ $product->link  }}
+                    {{ $product->title  }}
                 @endif
             </h4>
             <div class="text-center description">{{ $product->description }}</div>

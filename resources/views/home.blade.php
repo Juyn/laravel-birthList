@@ -23,7 +23,7 @@
                <div class="countdown-label">minutes</div>
             </div>
          </div>
-         <a href="{{ route('product.index') }}"><button class="button  arrow">Accéder à la liste de naissance</button></a>
+{{--         <a href="{{ route('product.index') }}"><button class="button  arrow">Accéder à la liste de naissance</button></a>--}}
       </div>
    </div>
 

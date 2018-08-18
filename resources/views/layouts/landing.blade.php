@@ -35,40 +35,6 @@
 <div class="fullscreen">
     @yield('content')
 </div>
-
-<script type="text/javascript">
-    document.addEventListener('DOMContentLoaded', function(){
-                @if(Session::has('message'))
-        var type = "{{ Session::get('alert-type', 'info') }}";
-        switch(type){
-            case 'info':
-                toastr.info("{{ Session::get('message') }}");
-                break;
-
-            case 'warning':
-                toastr.warning("{{ Session::get('message') }}");
-                break;
-
-            case 'success':
-                toastr.success("{{ Session::get('message') }}");
-                break;
-
-            case 'error':
-                toastr.error("{{ Session::get('message') }}");
-                break;
-        }
-        @endif
-
-        $('#exampleModal').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget);
-            var title = button.data('title');
-            var id = button.data('id');
-            var modal = $(this);
-            modal.find('.modal-title').text("Réserver l'article  " + title);
-            modal.find('.modal-body input').val(title)
-        });
-    });
-</script>
 </body>
 </html>
 

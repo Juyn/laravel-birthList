@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1815339-9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', '{{ setting('site.google_analytics_tracking_id') }}');
+    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,31 +32,31 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="fullscreen">
-        @yield('content')
-    </div>
+<div class="fullscreen">
+    @yield('content')
+</div>
 
 <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function(){
-        @if(Session::has('message'))
-            var type = "{{ Session::get('alert-type', 'info') }}";
-            switch(type){
-                case 'info':
-                    toastr.info("{{ Session::get('message') }}");
-                    break;
+                @if(Session::has('message'))
+        var type = "{{ Session::get('alert-type', 'info') }}";
+        switch(type){
+            case 'info':
+                toastr.info("{{ Session::get('message') }}");
+                break;
 
-                case 'warning':
-                    toastr.warning("{{ Session::get('message') }}");
-                    break;
+            case 'warning':
+                toastr.warning("{{ Session::get('message') }}");
+                break;
 
-                case 'success':
-                    toastr.success("{{ Session::get('message') }}");
-                    break;
+            case 'success':
+                toastr.success("{{ Session::get('message') }}");
+                break;
 
-                case 'error':
-                    toastr.error("{{ Session::get('message') }}");
-                    break;
-            }
+            case 'error':
+                toastr.error("{{ Session::get('message') }}");
+                break;
+        }
         @endif
 
         $('#exampleModal').on('show.bs.modal', function (event) {

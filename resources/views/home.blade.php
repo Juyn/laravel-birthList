@@ -1,29 +1,29 @@
 @extends('layouts.landing')
 
 @section('content')
-   <div class="countdown">
+   <div class="countdown col-xs-12">
       <div class="teasing">
-         <h1>A huuuge event is coming !</h1>
-         <h2>Naissance de "Mini Nous" prévue dans</h2>
-         <div class="row col-md-8 offset-2">
-            <div class="countdown-item col-sm-3 col-xs-6">
+         <h1 class="d-none d-sm-block">A huuuge event is coming !</h1>
+          <h2>Naissance de <strong>"Mini Nous"</strong> prévue dans</h2>
+         <div class="row col-xs-12 col-lg-8 offset-lg-2 offset-xs-0">
+            <div class="countdown-item col-xs-12 col-sm-3">
                <div id="countdown-months" class="countdown-number">00</div>
                <div class="countdown-label">mois</div>
             </div>
-            <div class="countdown-item col-sm-3 col-xs-6">
+            <div class="countdown-item col-xs-12 col-sm-3">
                <div id="countdown-days" class="countdown-number">00</div>
                <div class="countdown-label">jours</div>
             </div>
-            <div class="countdown-item col-sm-3 col-xs-6">
+            <div class="countdown-item col-xs-12 col-sm-3">
                <div id="countdown-hours" class="countdown-number">00</div>
                <div class="countdown-label">heures</div>
             </div>
-            <div class="countdown-item col-sm-3 col-xs-6">
+            <div class="countdown-item col-xs-12 col-sm-3">
                <div id="countdown-minutes" class="countdown-number">00</div>
                <div class="countdown-label">minutes</div>
             </div>
          </div>
-{{--         <a href="{{ route('product.index') }}"><button class="button  arrow">Accéder à la liste de naissance</button></a>--}}
+         <a href="{{ route('product.index') }}" class="button arrow">Accéder à la liste de naissance</a>
       </div>
    </div>
 

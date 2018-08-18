@@ -6,7 +6,7 @@
             @forelse($wishes as $wish)
                 @include('partials.wish', ['wish' => $wish])
             @empty
-                <p class="empty">Vous n'avez pas encore réséver de produit !</p>
+                <p class="empty">Vous n'avez pas encore résévé de produit !</p>
             @endforelse
         </div>
     </div>

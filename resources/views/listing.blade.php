@@ -16,10 +16,10 @@
         </div>
         <div class="filters card">
             <h2>Filter par Categories</h2>
-            <div id="filters">
+            <div id="filters" class="d-flex justify flex-wrap">
                 @foreach ($categories as $category)
                     @if (count($category->products))
-                        <a href="#" data-id="{{ $category->id }}" class="filter input badge-secondary">{{ $category->name }}</a>
+                       <a href="#" data-id="{{ $category->id }}" class="filter input badge-secondary">{{ $category->name }}</a>
                     @endif
                 @endforeach
             </div>

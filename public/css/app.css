@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css?family=Sawarabi+Mincho);@charset "UTF-8";
 
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -13532,6 +13532,11 @@ a.text-dark:focus {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+.navbar-nav {
+  top: 2px;
+  position: relative;
+}
+
 body,
 html {
   height: 100%;
@@ -13543,6 +13548,13 @@ html {
 CARDS
 ----------------------------------------------------------------------- */
 
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Sawarabi Mincho', cursive;
+}
+
 .card {
   display: inline-block;
   position: relative;
@@ -13553,6 +13565,10 @@ CARDS
   background: #fff;
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
           box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.card .note {
+  font-family: 'Sawarabi Mincho', cursive;
 }
 
 .item.disabledItem {
@@ -13736,6 +13752,12 @@ CARDS
   text-align: center;
 }
 
+.card-product .category {
+  text-transform: uppercase;
+  color: #5f727f;
+  font-weight: bold;
+}
+
 .card .price .btn:focus {
   -webkit-box-shadow: 0 0 0 0.2rem #5f727f;
           box-shadow: 0 0 0 0.2rem #5f727f;
@@ -13751,6 +13773,11 @@ CARDS
 
 .card-description p {
   color: #888;
+}
+
+.table .description {
+  font-size: 0.8rem;
+  margin-bottom: 9px;
 }
 
 .card-caption,
@@ -14092,5 +14119,24 @@ form #quantity {
     position: relative;
     top: 9px;
   }
+}
+
+a.external:after {
+  font-family: 'FontAwesome', sans-serif;
+  content: "\F08E";
+  color: grey;
+  font-size: 1rem;
+  opacity: 0.3;
+}
+
+.card.notFound img {
+  position: relative;
+  top: 48px;
+  width: calc(100% + 2px);
+  margin-left: -1px;
+}
+
+.card.notFound p {
+  font-size: 1.0rem;
 }
 

@@ -8,7 +8,11 @@
                 {{ $wish->product->category->name }}
             </h6>
             <h4 class="card-caption">
-                <a target="_blank" href="{{ $wish->product->link  }}">{{ $wish->product->title }}</a>
+                @if (!is_null($wish->product->link))
+                    <a target="_blank" class="external" href="{{ $wish->product->link  }}">{{ $wish->product->title }} </a>
+                @else
+                    {{ $wish->product->title  }}
+                @endif
             </h4>
             <div class="price text-center">
                <h4>{{ $wish->product->price }} €</h4>

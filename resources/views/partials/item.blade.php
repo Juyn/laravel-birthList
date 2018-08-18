@@ -7,12 +7,24 @@
             <h6 class="category text-rose">
                 {{ $product->category->name }}
             </h6>
-            <div class="text-center">@if ($product->availableQuantity > 0) Bébé a besoin de {{ $product->availableQuantity }} @else Déjà réservé !@endif</div>
             <h4 class="card-caption">
-                <a target="_blank" href="{{ $product->link  }}">{{ $product->title }}</a>
+                @if (!is_null($product->link))
+                    <a target="_blank" class="external" href="{{ $product->link  }}">{{ $product->title }} </a>
+                @else
+                    {{ $product->link  }}
+                @endif
             </h4>
+            <div class="text-center description">{{ $product->description }}</div>
+            <div class="text-center">@if ($product->availableQuantity > 0 && $product->availableQuantity != 99) Bébé en veut {{ $product->availableQuantity }} @else Déjà réservé !@endif</div>
+            <br/>
             <div class="price text-center">
-                <h4>{{ $product->price }} €</h4>
+                @if ($product->price > 0)
+                    <h4> {{ $product->price }} € </h4>
+                @elseif ($product->brandFree)
+                    <h5><strong>Choix libre</strong></h5>
+                @else
+                    <h4> {{ $product->price }} € </h4>
+                @endif
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#itemModal" data-title="{{ $product->title }}" data-link="{{ $product->link }}" data-id="{{ $product->id }}" data-quantity="{{ $product->availableQuantity }}">Offrir</button>
             </div>
         </div>
@@ -44,8 +56,7 @@
                 <hr>
                 @csrf
                 {!! Form::label('quantity', 'Combien souhaites-tu en réserver ?') !!}
-                {!! Form::number('quantity', '1', ['max' => 2, 'min' => 1]) !!}
-
+                {!! Form::number('quantity', '1', ['max' => $product->availableQuantity, 'min' => 1]) !!}
                 {!! Form::hidden('productId', $product->id, ['class' => 'productId']) !!}
                 {!! Form::submit('Enregistrer', ['class' => 'float-right btn btn-secondary', 'data-dismiss' => '']) !!}
                 {!! Form::close() !!}

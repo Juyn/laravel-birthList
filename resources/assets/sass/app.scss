@@ -2,7 +2,7 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 @import "~font-awesome/scss/font-awesome.scss";
-
+@import url('https://fonts.googleapis.com/css?family=Sawarabi+Mincho');
 // Variables
 @import 'variables';
 
@@ -14,6 +14,10 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+.navbar-nav {
+  top: 2px;
+  position: relative;
+}
 body, html {
   height: 100%;
   width: 100%;
@@ -23,7 +27,9 @@ body, html {
 /*---------------------------------------------------------------------- /
 CARDS
 ----------------------------------------------------------------------- */
-
+h1, h2, h3, h4 {
+  font-family: 'Sawarabi Mincho', cursive;
+}
 .card {
   display: inline-block;
   position: relative;
@@ -33,6 +39,10 @@ CARDS
   color: rgba(0, 0, 0, 0.87);
   background: #fff;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
+  .note {
+    font-family: 'Sawarabi Mincho', cursive;
+  }
 }
 
 .item.disabledItem {
@@ -211,6 +221,11 @@ CARDS
   text-align: center;
 }
 
+.card-product .category {
+  text-transform: uppercase;
+  color: #5f727f;
+  font-weight: bold;
+}
 .card .price .btn:focus {
   box-shadow: 0 0 0 0.2rem rgb(95, 114, 127);
 }
@@ -222,6 +237,11 @@ CARDS
 }
 .card-description p {
   color: #888;
+}
+
+.table .description {
+  font-size: 0.8rem;
+  margin-bottom: 9px;
 }
 
 .card-caption,
@@ -492,5 +512,27 @@ form #quantity {
     font-size: 1.1rem;
     position: relative;
     top: 9px;
+  }
+}
+
+a.external {
+  &:after {
+    font-family: 'FontAwesome', sans-serif;
+    content: "\F08E";
+    color: grey;
+    font-size: 1rem;
+    opacity: 0.3;
+  }
+}
+
+.card.notFound {
+  img {
+    position: relative;
+    top: 48px;
+    width: calc(100% + 2px);
+    margin-left: -1px;
+  }
+  p {
+    font-size: 1.0rem;
   }
 }

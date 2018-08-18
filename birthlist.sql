@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 18 août 2018 à 07:15
+-- Généré le :  sam. 18 août 2018 à 17:53
 -- Version du serveur :  5.7.19
 -- Version de PHP :  7.1.9
 
@@ -37,15 +37,14 @@ CREATE TABLE IF NOT EXISTS `category` (
   `keywords` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `visible` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Déchargement des données de la table `category`
 --
 
 INSERT INTO `category` (`id`, `created_at`, `updated_at`, `name`, `keywords`, `visible`) VALUES
-(1, '2018-07-24 19:21:13', '2018-07-24 19:21:13', 'Jouets', 'jouet éveil peluche nounours', 1),
-(2, '2018-07-29 20:27:26', '2018-07-29 20:27:26', 'Vétements', 'body', 1);
+(3, '2018-08-18 15:48:07', '2018-08-18 15:48:07', 'Elsa et Xavier', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -70,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `data_rows` (
   `order` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `data_rows_data_type_id_foreign` (`data_type_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Déchargement des données de la table `data_rows`
@@ -122,8 +121,15 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (67, 8, 'quantity', 'text', 'Quantity', 1, 1, 1, 1, 1, 1, NULL, 9),
 (68, 8, 'link', 'text', 'Link', 0, 1, 1, 1, 1, 1, NULL, 10),
 (69, 8, 'brandFree', 'text', 'BrandFree', 1, 1, 1, 1, 1, 1, NULL, 11),
-(70, 8, 'category_id', 'text', 'Category Id', 1, 1, 1, 1, 1, 1, NULL, 2),
-(71, 8, 'product_belongsto_category_relationship', 'relationship', 'category', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Category\",\"table\":\"category\",\"type\":\"belongsTo\",\"column\":\"category_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"category\",\"pivot\":\"0\",\"taggable\":null}', 12);
+(70, 8, 'category_id', 'hidden', 'Category Id', 1, 1, 1, 1, 1, 1, NULL, 2),
+(71, 8, 'product_belongsto_category_relationship', 'relationship', 'category_id', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Category\",\"table\":\"category\",\"type\":\"belongsTo\",\"column\":\"category_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"category\",\"pivot\":\"0\",\"taggable\":\"0\"}', 12),
+(72, 9, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, NULL, 1),
+(73, 9, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, NULL, 2),
+(74, 9, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 3),
+(75, 9, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, NULL, 4),
+(76, 9, 'keywords', 'text', 'Keywords', 0, 1, 1, 1, 1, 1, NULL, 5),
+(77, 9, 'visible', 'checkbox', 'Visible', 1, 1, 1, 1, 1, 1, NULL, 6),
+(78, 9, 'category_hasmany_product_relationship_1', 'relationship', 'product', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Product\",\"table\":\"product\",\"type\":\"hasMany\",\"column\":\"category_id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"category\",\"pivot\":\"0\",\"taggable\":null}', 7);
 
 -- --------------------------------------------------------
 
@@ -151,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `data_types` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `data_types_name_unique` (`name`),
   UNIQUE KEY `data_types_slug_unique` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Déchargement des données de la table `data_types`
@@ -161,9 +167,9 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (1, 'users', 'users', 'User', 'Users', 'voyager-person', 'TCG\\Voyager\\Models\\User', 'TCG\\Voyager\\Policies\\UserPolicy', '', '', 1, 0, NULL, '2018-07-24 19:14:22', '2018-07-24 19:14:22'),
 (2, 'menus', 'menus', 'Menu', 'Menus', 'voyager-list', 'TCG\\Voyager\\Models\\Menu', NULL, '', '', 1, 0, NULL, '2018-07-24 19:14:22', '2018-07-24 19:14:22'),
 (3, 'roles', 'roles', 'Role', 'Roles', 'voyager-lock', 'TCG\\Voyager\\Models\\Role', NULL, '', '', 1, 0, NULL, '2018-07-24 19:14:22', '2018-07-24 19:14:22'),
-(4, 'category', 'category', 'Category', 'Categories', NULL, 'App\\Category', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2018-07-24 19:15:00', '2018-07-24 19:15:00'),
 (7, 'wish', 'wish', 'Wish', 'Wishes', NULL, 'App\\Wish', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2018-07-24 19:30:35', '2018-07-24 19:30:35'),
-(8, 'product', 'product', 'Product', 'Products', 'voyager-shop', 'App\\Product', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2018-08-01 18:07:40', '2018-08-01 18:07:40');
+(8, 'product', 'product', 'Product', 'Products', 'voyager-shop', 'App\\Product', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2018-08-01 18:07:40', '2018-08-01 18:07:40'),
+(9, 'category', 'category', 'Category', 'Categories', NULL, 'App\\Category', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2018-08-18 15:31:14', '2018-08-18 15:31:14');
 
 -- --------------------------------------------------------
 
@@ -309,7 +315,7 @@ CREATE TABLE IF NOT EXISTS `permissions` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `permissions_key_index` (`key`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Déchargement des données de la table `permissions`
@@ -342,11 +348,6 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 (24, 'add_settings', 'settings', '2018-07-24 19:14:22', '2018-07-24 19:14:22'),
 (25, 'delete_settings', 'settings', '2018-07-24 19:14:22', '2018-07-24 19:14:22'),
 (26, 'browse_hooks', NULL, '2018-07-24 19:14:22', '2018-07-24 19:14:22'),
-(27, 'browse_category', 'category', '2018-07-24 19:15:00', '2018-07-24 19:15:00'),
-(28, 'read_category', 'category', '2018-07-24 19:15:00', '2018-07-24 19:15:00'),
-(29, 'edit_category', 'category', '2018-07-24 19:15:00', '2018-07-24 19:15:00'),
-(30, 'add_category', 'category', '2018-07-24 19:15:00', '2018-07-24 19:15:00'),
-(31, 'delete_category', 'category', '2018-07-24 19:15:00', '2018-07-24 19:15:00'),
 (42, 'browse_wish', 'wish', '2018-07-24 19:30:35', '2018-07-24 19:30:35'),
 (43, 'read_wish', 'wish', '2018-07-24 19:30:35', '2018-07-24 19:30:35'),
 (44, 'edit_wish', 'wish', '2018-07-24 19:30:35', '2018-07-24 19:30:35'),
@@ -356,7 +357,12 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 (48, 'read_product', 'product', '2018-08-01 18:07:40', '2018-08-01 18:07:40'),
 (49, 'edit_product', 'product', '2018-08-01 18:07:40', '2018-08-01 18:07:40'),
 (50, 'add_product', 'product', '2018-08-01 18:07:40', '2018-08-01 18:07:40'),
-(51, 'delete_product', 'product', '2018-08-01 18:07:40', '2018-08-01 18:07:40');
+(51, 'delete_product', 'product', '2018-08-01 18:07:40', '2018-08-01 18:07:40'),
+(52, 'browse_category', 'category', '2018-08-18 15:31:14', '2018-08-18 15:31:14'),
+(53, 'read_category', 'category', '2018-08-18 15:31:14', '2018-08-18 15:31:14'),
+(54, 'edit_category', 'category', '2018-08-18 15:31:14', '2018-08-18 15:31:14'),
+(55, 'add_category', 'category', '2018-08-18 15:31:14', '2018-08-18 15:31:14'),
+(56, 'delete_category', 'category', '2018-08-18 15:31:14', '2018-08-18 15:31:14');
 
 -- --------------------------------------------------------
 
@@ -418,7 +424,12 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (48, 1),
 (49, 1),
 (50, 1),
-(51, 1);
+(51, 1),
+(52, 1),
+(53, 1),
+(54, 1),
+(55, 1),
+(56, 1);
 
 -- --------------------------------------------------------
 
@@ -441,17 +452,14 @@ CREATE TABLE IF NOT EXISTS `product` (
   `category_id` int(10) UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
   KEY `product_category_index` (`category_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Déchargement des données de la table `product`
 --
 
 INSERT INTO `product` (`id`, `created_at`, `updated_at`, `image`, `title`, `description`, `price`, `quantity`, `link`, `brandFree`, `category_id`) VALUES
-(5, '2018-07-29 20:26:00', '2018-08-01 18:27:07', NULL, 'Produit 2', 'test', 2.22, 5, NULL, 0, 1),
-(6, '2018-08-01 18:08:39', '2018-08-01 18:08:39', 'https://media.vertbaudet.fr/Pictures/vertbaudet/18889/parc-en-bois-pliant-3-positions-flexipark.jpg?width=1320', 'Parc en bois pliant 3 positions Flexipark - gris', 'Grâce à ses 3 hauteurs, ce parc accompagne bébé dans sa croissance et lui permet de jouer et de s\'éveiller en toute sécurité. Le petit plus : il se plie facilement pour un gain de place dans votre pièce.', 149, 1, 'https://www.vertbaudet.fr/parc-en-bois-pliant-3-positions-flexipark-gris.htm?ProductId=703350011&FiltreCouleur=6429&FiltreTaille=TU&Track=ref_payant&cmpid=SEM0296&gclid=CjwKCAjwtIXbBRBhEiwAWV-5ntvNW4Jzc1N3m6N3rYBLXxLvHzWPUH5KmJxKC3hSllxFUYkAmM-dUxoC-GEQAvD_BwE', 0, 2),
-(7, '2018-07-29 20:26:00', '2018-08-01 18:27:07', NULL, 'Produit 25', 'test', 2.22, 5, NULL, 0, 2),
-(8, '2018-08-16 16:25:24', '2018-08-16 16:25:24', 'https://media.vertbaudet.fr/Pictures/vertbaudet/14544/nid-dange-2-en-1-transformable.jpg?width=1320', 'Nid d\'ange', 'transformable - gris', 41.99, 1, 'https://www.vertbaudet.fr/nid-d-ange-2-en-1-transformable-gris.htm?ProductId=702740030&FiltreCouleur=6449&FiltreTaille=TU&tool=recherche_partenaire', 1, 1);
+(9, '2018-08-18 15:50:07', '2018-08-18 15:50:07', 'https://media.vertbaudet.fr/Pictures/vertbaudet/18889/parc-en-bois-pliant-3-positions-flexipark.jpg?width=1320', 'Advanced', 'transformable - gris', 0, 5, 'https://www.vertbaudet.fr/nid-d-ange-2-en-1-transformable-gris.htm?ProductId=702740030&FiltreCouleur=6449&FiltreTaille=TU&tool=recherche_partenaire', 0, 3);
 
 -- --------------------------------------------------------
 
@@ -610,13 +618,6 @@ CREATE TABLE IF NOT EXISTS `wish` (
 ) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Déchargement des données de la table `wish`
---
-
-INSERT INTO `wish` (`id`, `created_at`, `updated_at`, `product_id`, `user_id`, `quantity`) VALUES
-(23, '2018-08-15 21:07:50', '2018-08-15 21:07:50', 5, 1, 1);
-
---
 -- Contraintes pour les tables déchargées
 --
 
@@ -624,7 +625,7 @@ INSERT INTO `wish` (`id`, `created_at`, `updated_at`, `product_id`, `user_id`, `
 -- Contraintes pour la table `product`
 --
 ALTER TABLE `product`
-  ADD CONSTRAINT `category` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`);
+  ADD CONSTRAINT `category` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `users`

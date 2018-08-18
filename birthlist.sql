@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 15 août 2018 à 23:45
+-- Généré le :  sam. 18 août 2018 à 07:15
 -- Version du serveur :  5.7.19
 -- Version de PHP :  7.1.9
 
@@ -441,7 +441,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `category_id` int(10) UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
   KEY `product_category_index` (`category_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Déchargement des données de la table `product`
@@ -450,7 +450,8 @@ CREATE TABLE IF NOT EXISTS `product` (
 INSERT INTO `product` (`id`, `created_at`, `updated_at`, `image`, `title`, `description`, `price`, `quantity`, `link`, `brandFree`, `category_id`) VALUES
 (5, '2018-07-29 20:26:00', '2018-08-01 18:27:07', NULL, 'Produit 2', 'test', 2.22, 5, NULL, 0, 1),
 (6, '2018-08-01 18:08:39', '2018-08-01 18:08:39', 'https://media.vertbaudet.fr/Pictures/vertbaudet/18889/parc-en-bois-pliant-3-positions-flexipark.jpg?width=1320', 'Parc en bois pliant 3 positions Flexipark - gris', 'Grâce à ses 3 hauteurs, ce parc accompagne bébé dans sa croissance et lui permet de jouer et de s\'éveiller en toute sécurité. Le petit plus : il se plie facilement pour un gain de place dans votre pièce.', 149, 1, 'https://www.vertbaudet.fr/parc-en-bois-pliant-3-positions-flexipark-gris.htm?ProductId=703350011&FiltreCouleur=6429&FiltreTaille=TU&Track=ref_payant&cmpid=SEM0296&gclid=CjwKCAjwtIXbBRBhEiwAWV-5ntvNW4Jzc1N3m6N3rYBLXxLvHzWPUH5KmJxKC3hSllxFUYkAmM-dUxoC-GEQAvD_BwE', 0, 2),
-(7, '2018-07-29 20:26:00', '2018-08-01 18:27:07', NULL, 'Produit 25', 'test', 2.22, 5, NULL, 0, 2);
+(7, '2018-07-29 20:26:00', '2018-08-01 18:27:07', NULL, 'Produit 25', 'test', 2.22, 5, NULL, 0, 2),
+(8, '2018-08-16 16:25:24', '2018-08-16 16:25:24', 'https://media.vertbaudet.fr/Pictures/vertbaudet/14544/nid-dange-2-en-1-transformable.jpg?width=1320', 'Nid d\'ange', 'transformable - gris', 41.99, 1, 'https://www.vertbaudet.fr/nid-d-ange-2-en-1-transformable-gris.htm?ProductId=702740030&FiltreCouleur=6449&FiltreTaille=TU&tool=recherche_partenaire', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -502,17 +503,17 @@ CREATE TABLE IF NOT EXISTS `settings` (
 --
 
 INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`, `order`, `group`) VALUES
-(1, 'site.title', 'Site Title', 'Virgule !', '', 'text', 1, 'Site'),
+(1, 'site.title', 'Site Title', 'The Baby Factory', '', 'text', 1, 'Site'),
 (2, 'site.description', 'Site Description', 'Site Description', '', 'text', 2, 'Site'),
 (3, 'site.logo', 'Site Logo', '', '', 'image', 3, 'Site'),
 (4, 'site.google_analytics_tracking_id', 'Google Analytics Tracking ID', NULL, '', 'text', 4, 'Site'),
 (5, 'admin.bg_image', 'Admin Background Image', '', '', 'image', 5, 'Admin'),
-(6, 'admin.title', 'Admin Title', 'Voyager', '', 'text', 1, 'Admin'),
+(6, 'admin.title', 'Admin Title', 'The Baby Factory', '', 'text', 1, 'Admin'),
 (7, 'admin.description', 'Admin Description', 'Welcome to Voyager. The Missing Admin for Laravel', '', 'text', 2, 'Admin'),
 (8, 'admin.loader', 'Admin Loader', '', '', 'image', 3, 'Admin'),
 (9, 'admin.icon_image', 'Admin Icon Image', '', '', 'image', 4, 'Admin'),
 (10, 'admin.google_analytics_client_id', 'Google Analytics Client ID (used for admin dashboard)', NULL, '', 'text', 1, 'Admin'),
-(14, 'site.reservation_custom_text', 'Custom message for reservation modal', '<p>C\'est trop cool !</p>\r\n<p>Pour valider ta r&eacute;servation, il ne te reste plus qu\'&agrave; choisir une quantit&eacute;, l&agrave;, juste en dessous.</p>', NULL, 'rich_text_box', 6, 'Site');
+(14, 'site.reservation_custom_text', 'Custom message for reservation modal', '<p>C\'est trop cool !</p>\r\n<p>Pour &eacute;viter les doublons, nous avons besoin que tu indique aux autres la quantit&eacute; que tu souhaites offrir.</p>\r\n<p>Il ne s\'agit pas d\'un achat, il faut passer par le magasin ou son site Internet (on a mis le lien ci-dessous).&nbsp;</p>\r\n<p>Oh, et ne t\'inqui&egrave;te pas, tu peux voir (et supprimer) ce que tu as r&eacute;serv&eacute; via la page \"<a title=\"Mes r&eacute;servations\" href=\"/wishes\" target=\"_blank\" rel=\"noopener noreferrer\">Mes r&eacute;servations</a>\"</p>', NULL, 'rich_text_box', 6, 'Site');
 
 -- --------------------------------------------------------
 
@@ -563,8 +564,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `password`, `avatar`, `remember_token`, `settings`, `created_at`, `updated_at`, `facebook_id`) VALUES
-(1, 1, 'xavier', 'juyn89@gmail.com', '$2y$10$y2.dfLxnoeEhFtJA7iUaW.kx05IxMmZXiicxym4f8HgyUItCsLA76', 'users/default.png', 'GSdWoBmaMmJ4l5X65gqfdwvtYI0FxdjMbl3EDyzuYo9ZxIEF7FOo0dhKFjhj', NULL, '2018-07-24 19:14:40', '2018-07-24 19:14:40', NULL),
-(2, 2, 'Xavier', 'xavier@email.com', '', 'users/default.png', '7aqS9h5ZYXGUZW4xLCUDkoMl7lHh0HjdqTFEcpmQCaXu79zhp66OxBCw1HM8', NULL, '2018-07-25 19:22:48', '2018-07-25 19:22:48', NULL),
+(1, 1, 'xavier', 'juyn89@gmail.com', '$2y$10$y2.dfLxnoeEhFtJA7iUaW.kx05IxMmZXiicxym4f8HgyUItCsLA76', 'users/default.png', 'Pq1oAz7ZkvYuU1m7mCXKVs0bzBsivmYpcN6YryQyBcovn93Wg074eni4mwgT', NULL, '2018-07-24 19:14:40', '2018-07-24 19:14:40', NULL),
+(2, 2, 'Xavier', 'xavier@email.com', '', 'users/default.png', 'jFAYxsnQ4q6rnf3e4DNxHiiOm7W7ncgQPiIZcz0vLPF8d4c053eOqHuLOxd0', NULL, '2018-07-25 19:22:48', '2018-07-25 19:22:48', NULL),
 (3, 2, 'test', 'test@test.com', '', 'users/default.png', 'PVd2sbO2PQnKDMxVj3MjeXhqxjSLWiFImSOsvIvKq6VRqw2mpqmXQpq8thoO', NULL, '2018-07-25 19:22:59', '2018-07-25 19:22:59', NULL);
 
 -- --------------------------------------------------------
@@ -606,38 +607,18 @@ CREATE TABLE IF NOT EXISTS `wish` (
   PRIMARY KEY (`id`),
   KEY `wish_product_index` (`product_id`),
   KEY `wish_user_index` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Déchargement des données de la table `wish`
 --
 
 INSERT INTO `wish` (`id`, `created_at`, `updated_at`, `product_id`, `user_id`, `quantity`) VALUES
-(22, '2018-08-15 21:07:27', '2018-08-15 21:07:27', 6, 1, 1),
 (23, '2018-08-15 21:07:50', '2018-08-15 21:07:50', 5, 1, 1);
 
 --
 -- Contraintes pour les tables déchargées
 --
-
---
--- Contraintes pour la table `data_rows`
---
-ALTER TABLE `data_rows`
-  ADD CONSTRAINT `data_rows_data_type_id_foreign` FOREIGN KEY (`data_type_id`) REFERENCES `data_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `menu_items`
---
-ALTER TABLE `menu_items`
-  ADD CONSTRAINT `menu_items_menu_id_foreign` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`) ON DELETE CASCADE;
-
---
--- Contraintes pour la table `permission_role`
---
-ALTER TABLE `permission_role`
-  ADD CONSTRAINT `permission_role_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `product`
@@ -650,13 +631,6 @@ ALTER TABLE `product`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `users_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`);
-
---
--- Contraintes pour la table `user_roles`
---
-ALTER TABLE `user_roles`
-  ADD CONSTRAINT `user_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `user_roles_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `wish`

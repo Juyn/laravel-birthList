@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Category extends Model
 {
-    protected $table = 'Category';
+    protected $table = 'category';
     public $timestamps = true;
 
     /**

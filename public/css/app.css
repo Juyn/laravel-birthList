@@ -13778,6 +13778,9 @@ h4 {
 .table .description {
   font-size: 0.8rem;
   margin-bottom: 9px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card-caption,

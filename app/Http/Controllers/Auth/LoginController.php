@@ -63,11 +63,13 @@ class LoginController extends Controller
                 return view('auth.login_admin', ['email' => $user->email])->with($notification);
             }
         } else {
+            if ($user instanceof User) {
             /** @var Role $role */
             foreach ($user->roles as $role) {
                 if (in_array('admin', $role->attributesToArray())) {
                     return view('auth.login_admin', ['email' => $user->email]);
                 }
+            }
             }
         }
 

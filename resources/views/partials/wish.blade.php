@@ -14,6 +14,9 @@
                     {{ $wish->product->title  }}
                 @endif
             </h4>
+
+            <div class="card-caption">Quantité: {{ $wish->quantity }}</div>
+
             <div class="price text-center">
                <h4>{{ $wish->product->price }} €</h4>
                 <form action="{{ route('wishes.destroy', $wish->id) }}" method="POST">

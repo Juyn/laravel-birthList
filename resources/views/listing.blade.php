@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="filters card">
-            <h2>Filter par Categories</h2>
+            <h2>Filtrer par Categories</h2>
             <div id="filters" class="d-flex justify flex-wrap">
                 @foreach ($categories as $category)
                     @if (count($category->products))

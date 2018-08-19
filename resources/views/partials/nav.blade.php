@@ -1,5 +1,6 @@
 <nav class="navbar navbar-expand-sm sticky-top navbar-dark bg-dark">
     <div class="container">
+        <img src="{{ asset('images/logo-tbf-small-white.png') }}" alt="logo The Baby Factory"/>
         <a class="navbar-brand" href="{{ route('home') }}">{!! setting('site.title') !!}</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar1">
             <span class="navbar-toggler-icon"></span>

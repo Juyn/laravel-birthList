@@ -13537,6 +13537,11 @@ a.text-dark:focus {
   position: relative;
 }
 
+.navbar img {
+  height: 40px;
+  margin-right: 20px;
+}
+
 body,
 html {
   height: 100%;

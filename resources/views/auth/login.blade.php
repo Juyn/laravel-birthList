@@ -28,6 +28,7 @@
                             <button type="submit" class="btn btn-primary">
                                 {{ __('Se connecter') }}
                             </button>
+                            <a style="width: 100%" class="btn btn-primary" href="/register">Créer un compte</a>
                         </form>
                     </div>
                 </div>

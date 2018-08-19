@@ -64,7 +64,7 @@
                 @endif
                 {!! Form::hidden('quantity', '1') !!}
                 {!! Form::hidden('productId', $product->id, ['class' => 'productId']) !!}
-                {!! Form::submit('Enregistrer', ['class' => 'float-right btn btn-secondary', 'data-dismiss' => '']) !!}
+                {!! Form::submit('Réserver', ['class' => 'float-right btn btn-secondary', 'data-dismiss' => '']) !!}
                 {!! Form::close() !!}
             </div>
         </div>

@@ -1,6 +1,6 @@
 <div class="col-md-3 col-xs-12 item @if ($product->availableQuantity < 1) disabledItem @endif">
     <div class="card card-product">
-        <div class="card-image">
+        <div class="card-image @if ($product->beforeBirth) beforeBirth @endif">
             <a target="_blank" href="{{ $product->link  }}"> <img class="img" src="@if (!is_null($product->image)){{ $product->image }} @else /images/image_not_found.jpg @endif"> </a>
         </div>
         <div class="table">

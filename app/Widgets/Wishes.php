@@ -31,7 +31,7 @@ class Wishes extends AbstractWidget
             'title'  => "{$count} {$string}",
             'text'   => __('voyager::dimmer.user_text', ['count' => $count, 'string' => Str::lower($string)]),
             'button' => [
-                'text' => "View all wishes",
+                'text' => "Voir les réservations",
                 'link' => route('voyager.wish.index'),
             ],
             'image' => asset('images/wishes_widget.jpg'),

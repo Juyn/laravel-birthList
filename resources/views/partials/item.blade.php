@@ -15,7 +15,7 @@
                 @endif
             </h4>
             <div class="text-center description">{{ $product->description }}</div>
-            <div class="text-center">@if ($product->availableQuantity > 0 && $product->availableQuantity != 99) Bébé en veut {{ $product->availableQuantity }} @else Déjà réservé !@endif</div>
+            <div class="text-center">@if ($product->availableQuantity > 0 && $product->quantity != 99) Bébé en veut {{ $product->availableQuantity }} @elseif ($product->quantity == 99) Bébé en veut plein @else Déjà réservé !@endif</div>
             <br/>
             <div class="price text-center">
                 @if ($product->price > 0)

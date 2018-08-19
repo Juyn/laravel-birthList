@@ -70,7 +70,7 @@
         }
         @endif
 
-        $('#itemModal').on('show.bs.modal', function (event) {
+        $('.itemModal').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget);
             var title = button.data('title');
             var id = button.data('id');
@@ -80,7 +80,9 @@
             modal.find('.modal-body input.productId').val(id)
             modal.find('.modal-body .externalLinkProduct').attr('href', link)
         });
-
+        $("#itemModal").on('hidden.bs.modal', function () {
+            $(this).data('bs.modal', null);
+        });
         $(document).ready(function() {
             $('.filters a').click(function handler() {
                 $(this).unbind('click');

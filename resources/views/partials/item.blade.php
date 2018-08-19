@@ -1,8 +1,16 @@
 <div class="col-md-3 col-xs-12 item @if ($product->availableQuantity < 1) disabledItem @endif">
     <div class="card card-product">
-        <div class="card-image @if ($product->beforeBirth) beforeBirth @endif">
-            <a target="_blank" href="{{ $product->link  }}"> <img class="img" src="@if (!is_null($product->image)){{ $product->image }} @else /images/image_not_found.jpg @endif"> </a>
-        </div>
+        @if (!is_null($product->link))
+            <a target="_blank" href="{{ $product->link  }}">
+                <div class="card-image @if ($product->beforeBirth) beforeBirth @endif">
+                    <img class="img" src="@if (!is_null($product->image)){{ $product->image }} @else /images/image_not_found.jpg @endif">
+                </div>
+            </a>
+        @else
+            <div class="card-image @if ($product->beforeBirth) beforeBirth @endif">
+                <img class="img" src="@if (!is_null($product->image)){{ $product->image }} @else /images/image_not_found.jpg @endif">
+            </div>
+        @endif
         <div class="table">
             <h6 class="category text-rose">
                 {{ $product->category->name }}
@@ -44,32 +52,32 @@
             </div>
             <div class="modal-body">
 
-                    <p>
-                        Pour éviter les doublons, nous avons besoin que tu indique aux autres la quantité que tu souhaites offrir.<br/><br/>
+                <p>
+                    Pour éviter les doublons, nous avons besoin que tu indique aux autres la quantité que tu souhaites offrir.<br/><br/>
 
-                        Et pas de soucis, tu peux voir (et supprimer) ce que tu as réservé via la page <a target="_blank" href="{{ route('wishes.index') }}">"Mes réservations"</a><br/><br/>
-                        @if (!empty($product->link))
-                            <span class="little">PS: Il ne s'agit pas d'un achat, il faut passer par le magasin ou son site Internet (on a mis le lien ci-dessous).</span>
-                            <div class="text-center">
-                                <a href="#" target="_blank" class="externalLinkProduct little text-center">Voir ou acheter le produit</a><br/><br/>
-                            </div>
-                        @endif
-                    </p>
+                    Et pas de soucis, tu peux voir (et supprimer) ce que tu as réservé via la page <a target="_blank" href="{{ route('wishes.index') }}">"Mes réservations"</a><br/><br/>
+                    @if (!empty($product->link))
+                        <span class="little">PS: Il ne s'agit pas d'un achat, il faut passer par le magasin ou son site Internet (on a mis le lien ci-dessous).</span>
+                <div class="text-center">
+                    <a href="#" target="_blank" class="externalLinkProduct little text-center">Voir ou acheter le produit</a><br/><br/>
+                </div>
+                @endif
+                </p>
 
                 <hr>
-                    @csrf
-                    @if ($product->availableQuantity > 1 && $product->quantity !== 99)
-                        {!! Form::label('quantity', 'Combien souhaites-tu en réserver ?') !!}
-                        {!! Form::number('quantity', '1', ['max' => $product->availableQuantity, 'min' => 1]) !!}
-                    @elseif ($product->quantity == 99)
-                        {!! Form::label('quantity', 'Combien souhaites-tu en réserver ?') !!}
-                        {!! Form::number('quantity', '1', ['min' => 1]) !!}
-                    @elseif ($product->availableQuantity == 1)
-                        {!! Form::hidden('quantity', '1') !!}
-                    @endif
-                    {!! Form::hidden('productId', $product->id, ['class' => 'productId']) !!}
-                    {!! Form::submit('Réserver', ['class' => 'float-right btn btn-secondary', 'data-dismiss' => '']) !!}
-                    {!! Form::close() !!}
+                @csrf
+                @if ($product->availableQuantity > 1 && $product->quantity !== 99)
+                    {!! Form::label('quantity', 'Combien souhaites-tu en réserver ?') !!}
+                    {!! Form::number('quantity', '1', ['max' => $product->availableQuantity, 'min' => 1]) !!}
+                @elseif ($product->quantity == 99)
+                    {!! Form::label('quantity', 'Combien souhaites-tu en réserver ?') !!}
+                    {!! Form::number('quantity', '1', ['min' => 1]) !!}
+                @elseif ($product->availableQuantity == 1)
+                    {!! Form::hidden('quantity', '1') !!}
+                @endif
+                {!! Form::hidden('productId', $product->id, ['class' => 'productId']) !!}
+                {!! Form::submit('Réserver', ['class' => 'float-right btn btn-secondary', 'data-dismiss' => '']) !!}
+                {!! Form::close() !!}
             </div>
         </div>
     </div>

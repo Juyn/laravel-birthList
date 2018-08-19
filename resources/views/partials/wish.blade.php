@@ -18,7 +18,13 @@
             <div class="card-caption">Quantité: {{ $wish->quantity }}</div>
 
             <div class="price text-center">
-               <h4>{{ $wish->product->price }} €</h4>
+                @if ($wish->product->price > 0)
+                    <h4> {{ $wish->product->price }} € </h4>
+                @elseif ($wish->product->brandFree)
+                    <h5><strong>Choix libre</strong></h5>
+                @else
+                    <h4> {{ $wish->product->price }} € </h4>
+                @endif
                 <form action="{{ route('wishes.destroy', $wish->id) }}" method="POST">
                     @method('DELETE')
                     @csrf

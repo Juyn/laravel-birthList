@@ -56,13 +56,13 @@
                 <hr>
                 @csrf
                 @if ($product->availableQuantity > 1 && $product->quantity !== 99)
-                    {!! Form::label('quantity', 'Combien souhaites-tu en réserver ?') !!}
+                    {!! Form::label('quantity', 'Combien souhaites-tu en réserver ? ' . $product->availableQuantity) !!}
                     {!! Form::number('quantity', '1', ['max' => $product->availableQuantity, 'min' => 1]) !!}
                 @elseif ($product->quantity == 99)
-                    {!! Form::label('quantity', 'Combien souhaites-tu en réserver ?') !!}
+                    {!! Form::label('quantity', 'Combien souhaites-tu en réserver ? ' . $product->availableQuantity) !!}
                     {!! Form::number('quantity', '1', ['min' => 1]) !!}
                 @elseif ($product->availableQuantity == 1)
-                    {!! Form::label('quantity', 'Combien souhaites-tu en réserver ?') !!}
+                    {!! Form::label('quantity', 'Combien souhaites-tu en réserver ? ' . $product->availableQuantity) !!}
                     {!! Form::number('quantity', '1', ['min' => 1]) !!}
                 @endif
                 {!! Form::hidden('quantity', '1') !!}

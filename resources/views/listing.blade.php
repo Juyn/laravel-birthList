@@ -7,10 +7,12 @@
             <div class="note">
                 <h1>Mot des parents</h1>
                 <p>
-                    Notre petit garçon devrait prendre sa première bouffée d'air frais en Décembre, et, c'est fou tout ce dont un bébé à besoin !<br/>
-                    Si tu meurs d'envie de faire un cadeau de bienvenue à notre petit gars, et que tu es en panne d'inspiration, nous avons réuni ici quelques idées.<br/><br/>
-                    Ah oui ! Ni Maman, ni Papa ne peuvent voir ce qui a été réservé ... <br>
-                    Maman a insisté pour garder la surprise, même si c'est Papa qui a créé le site ;-)
+                    Et voilà ! Kyllian a décidé de venir découvrir le monde !<br/>
+                    Tout va très bien, aussi bien pour Bébé que pour Elsa et Xavier ! <br/><br/>
+
+                    Nous apprenons à faire connaissance, et, on peut vous dire que c'est un vrai bonheur. Kyllian est un amour de bébé, il nous a déjà largement conquis ! <br/><br/>
+
+                    Une chose n'a pas changé: on ne sait toujours pas ce qui est réservé, ni par qui, mais, maintenant plus que jamais il est  important de penser  à réserver sur le site avant d'acheter, pour éviter les doublons et les mauvaises suprises !
                 </p>
             </div>
         </div>

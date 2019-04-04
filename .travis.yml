@@ -2,7 +2,7 @@ language: php
 addons:
   sonarcloud:
     sonar.projectKey: "laravel-birthlist"
-    sonar.login: "f4098ada41c189f4014e48e89c5e4fe775ab7b4b"
+    sonar.login: cMYiTvEbrmVaQxz4/iTOx9S9QjcENUu6HU0OZ89ukvOt/BGOXeI0lvOJTPZMHsxxw7Z8L5q7t50aOysZNL2lOiPFG6u/SOAUZz8b6FYgMtdkRQ4eNIRVCTExsW0aKaAsqVVXgS15giB1DrvFN1O2dhO27I8wqCS7gGWIanV/A7obs7fhxITnTFtrhudlnHvpOjkDLM6WsYMYACaOIuHVONQ8qbVJEgeFk2gc/Npdy3Gz5BaCT9fR5VftjxRZ5Q9LVle0S8+2rst+t96/d6H6ZrDpRs6POCdPGKedjp4TVKZA6lOKwaRtOTKJxwBqpbyJPxz0sO70aNmxMUsSa8RniXT3Fnld5/pzjg5pThRU6dKWjAAW7g2ggzR22WNLws7RY20tc5u2LygYpIzGlV/BYxba8kwt+OT/lw3hfl9cPdfs9n+Ul9WmhrnZtPbNZlSP8ElbyYz5rYHbpx4WMm7kj787BEONuP21u6IQCS/JFpLH1AL/qkceYq97zaetXBMkbWIg/80yromIhNjfIe/BqMq9LW1irELHodVow5N/wz8BYy1dHg9L8luVWgZbdLUX7ub9P/bGg300MlOHrZAzh1SK8yeCsIKr1k+jJYlmXYqxf/KAF7vGp+xtpS4oePcJWLj0fRsF7k49H2xBWl8EK4zhgbhihJP//tjR2NPaJ3w= -X
     sonar.host.url: "https://sonarcloud.io"
     organization: "juyn-github" # the key of the org you chose at step #3
     token:

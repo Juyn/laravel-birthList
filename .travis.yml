@@ -1,1 +1,9 @@
 language: php
+addons:
+  sonarcloud:
+    organization: "laboutiqueofficielle" # the key of the org you chose at step #3
+    token:
+      secure: a97f97c9cae48ca45ecb5ff527885c43fd0905b2 # encrypted value of your token
+script:
+  # other script steps might be done before running the actual analysis
+  - sonar-scanner

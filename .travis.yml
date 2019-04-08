@@ -1,7 +1,6 @@
 language: php
 addons:
   sonarcloud:
-#    projectKey: "laravel-birthlist"
     host.url: "https://sonarcloud.io"
     organization: "juyn-github" # the key of the org you chose at step #3
     login: "8bfe7b32d905e0c30c045362f2616e0341b59976"
@@ -11,8 +10,6 @@ addons:
     organization: "laravel-birthlist"
     token:
       secure: "ehDja+ke/14+G21t5/7xQnPDclyJk0vq/1Ou8dDTzHJFUWm+SmY8EW3FFy6Jd2HF7lZ593QpKOC9lRjoi8JhabEkAz5N/2SaIy8DmdaOvLYHr7YQMxvLi4oJOd5A/nXe9xSxzQZA6RdOTmzsb44VltzkgQmDSILgyIHaaeBGhcMo2s0W1hnd8irGaAzPB1SvRjYO4I8Ti2hT2eJjXqbOBulghZ/bOYKqmOiOq/ONFI5h8+2hhBBVCmybkpGa1t527S1KK+dxGAIYoTxgry17JJW9Ah0yi08N6lfYaM2K8WMetec49WM1CBBKGOzyuBBLJmcDC43tJMOZZpKZYFtfU4JarhEKnq/5gNBMf9r4r3OcMAPZG6owB4j4acG+bMDX7emSQMyAHtgjQOPz8RNjwsEQjwOH0+g/+QRN3X9qsdgwIYTtAcknPrW1i/H26HZA4hgGWKX5RQrg1uqp0hRfrGuSflCmeXeANqsK7uhzVa33jn19GZTveo7ZKg7ZWLh0JOr/MURMHl+uX2WShlSJlX8R+A6ZE4argz/v+NLPwll64RefjRHPVRXIFSc7AadwNW+dLMl/8EZILN4L1wktGS8PE36Wv2EIjhByT1zsYXvTJt4sB0iqeT5ALuTNS2UoMx87NtQee2aNQbnunXLRxTSf5zuIpNjkMhadsuCCzNg="
-    branches:
-- master
 script:
   # other script steps might be done before running the actual analysis
   - sonar-scanner

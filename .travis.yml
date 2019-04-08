@@ -1,17 +1,11 @@
 language: php
-sonar.login: "f4098ada41c189f4014e48e89c5e4fe775ab7b4b"
-sonar.password: ""
 addons:
   sonarcloud:
     projectKey: "laravel-birthlist"
     host.url: "https://sonarcloud.io"
-    login: "f4098ada41c189f4014e48e89c5e4fe775ab7b4b"
-    password: ""
-    sonar.login: "f4098ada41c189f4014e48e89c5e4fe775ab7b4b"
-    sonar.password: ""
     organization: "juyn-github" # the key of the org you chose at step #3
     token:
-      secure: "Cs4/P71hwCWsuxvt5WO0edyC/3Wjc/jBABPRZAMVbe2/WmCZ0tjlyKQgUNzGsOylfWo6IMfCGF7VA4hHn0ASTomvUp6vGUzVccqd/JVs5flhPUSy65C2HEEh0iWqIp0oj1P6jj5/v2k/926HR+/zGiCg1XsoGfNptjMTRECYuZdWzWpfnsXhsBjyXaSlk8VzXm5Qz+9KG4orRUhBErOSD3aPK1iQRI5xWozASuYbpK/Ur93UWZiDUl6ew++zmvr6jtK+HZyEApLZHINm9zQoW/NooERb1MHZjGg1PQ4V5UqBvYpuyUy2jGuuBflZvEllTvjpA2Vwz9iuIm40KNeuFF0M3M6hXDzgCxxcC8cL+v31j4UM5DxBDLQcsB35JFyicLE7BpBiSoERl0PdGkGrJpJCq4mSQcpurLl/tRX+pcVuat+WCJhH8oOUyz2F91m63z7Cfn1Nd7lhuYNBoxOWpWuz4FvC+wcMCrzfOdwesa4Ak9MWgFHCeJPzbrFY1v+wHgLefMTw88gVWAmkBDAkDfayMORf5Y7knxHfHQ2r4PSvpog2xNsQpBeR71jiSCi91pvDZmMTBIqF808brMt3HmiC4zEt4Regcb5ASkEOhDnWGOxbTlHy5TmYocD9H0kTfXnqR0VtiqolIEFfxqvWAOLfeOwwHyYx0pJ+gtZQvfQ="
+      secure: "PIoXp6hUPvuAuR7X1EYmCIFXbgFrKSgj78wB679FgWiVyQv2OuX5QrphDQx+1y8s9imKS7ARaiz6+B5pYeb4XKPgGpRYHeE+loJU6VVDNe1uqwHQzeyyAKUoqtQN4Irf2N5KP4R1s31rVjGfasFrrsmLwq9O5YeZWQiySkA4x2/Ni1+wknDS7+B9T0Jvv0i5G3V1soA+AamCG659jcGkYcF8tAypiGj3XLBFMgBLXn1ujPL+geYWpy+Z9rK2oLOhFvlFNUp5ZNZLcRiH8tTPlXa2YH49sCZzC3U0L/++xsNuvq3rwhqAmwtS4REcZgYNOGUWUohHEm8UY05xMfX425TgWEoEaTqQtOCECPxAmsGhkglBufkPcnzO7+DqMBOvdz1q8m/R7ASmB7Gc3/0CkOdOmm7iLg4DidWufiyTE5BOah6hejnhSZ1P1V9afNZ6mbMGb1+0/ZtzFrn3SmR9aXHiG1a/KHOwym1Ux3h9Dh4DKg72N3q20/tC//zSUa/1sgwePX+xi0oO4Dg/DRUoU0/FwTiWfqkZL4XnaZYOYmi4VUhCwSe9EeSbn4KS/8CvDtekXDMVjRNWb1Pj8PXzI/sXy3EjTy0jgD9AswRH6XMHEVm+TfUX4B6Z/ZV3LlZaVOIJ2cqQjGLWZMNxnU1ygbc472PyB1inkZIuS+O4f1Q="
 script:
   # other script steps might be done before running the actual analysis
   - sonar-scanner

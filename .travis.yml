@@ -6,8 +6,9 @@ addons:
     organization: "juyn-github" # the key of the org you chose at step #3
     login: "8bfe7b32d905e0c30c045362f2616e0341b59976"
     sources: "src"
-    token:
-      secure: "PIoXp6hUPvuAuR7X1EYmCIFXbgFrKSgj78wB679FgWiVyQv2OuX5QrphDQx+1y8s9imKS7ARaiz6+B5pYeb4XKPgGpRYHeE+loJU6VVDNe1uqwHQzeyyAKUoqtQN4Irf2N5KP4R1s31rVjGfasFrrsmLwq9O5YeZWQiySkA4x2/Ni1+wknDS7+B9T0Jvv0i5G3V1soA+AamCG659jcGkYcF8tAypiGj3XLBFMgBLXn1ujPL+geYWpy+Z9rK2oLOhFvlFNUp5ZNZLcRiH8tTPlXa2YH49sCZzC3U0L/++xsNuvq3rwhqAmwtS4REcZgYNOGUWUohHEm8UY05xMfX425TgWEoEaTqQtOCECPxAmsGhkglBufkPcnzO7+DqMBOvdz1q8m/R7ASmB7Gc3/0CkOdOmm7iLg4DidWufiyTE5BOah6hejnhSZ1P1V9afNZ6mbMGb1+0/ZtzFrn3SmR9aXHiG1a/KHOwym1Ux3h9Dh4DKg72N3q20/tC//zSUa/1sgwePX+xi0oO4Dg/DRUoU0/FwTiWfqkZL4XnaZYOYmi4VUhCwSe9EeSbn4KS/8CvDtekXDMVjRNWb1Pj8PXzI/sXy3EjTy0jgD9AswRH6XMHEVm+TfUX4B6Z/ZV3LlZaVOIJ2cqQjGLWZMNxnU1ygbc472PyB1inkZIuS+O4f1Q="
 script:
   # other script steps might be done before running the actual analysis
   - sonar-scanner
+env:
+  global:
+    secure: ehDja+ke/14+G21t5/7xQnPDclyJk0vq/1Ou8dDTzHJFUWm+SmY8EW3FFy6Jd2HF7lZ593QpKOC9lRjoi8JhabEkAz5N/2SaIy8DmdaOvLYHr7YQMxvLi4oJOd5A/nXe9xSxzQZA6RdOTmzsb44VltzkgQmDSILgyIHaaeBGhcMo2s0W1hnd8irGaAzPB1SvRjYO4I8Ti2hT2eJjXqbOBulghZ/bOYKqmOiOq/ONFI5h8+2hhBBVCmybkpGa1t527S1KK+dxGAIYoTxgry17JJW9Ah0yi08N6lfYaM2K8WMetec49WM1CBBKGOzyuBBLJmcDC43tJMOZZpKZYFtfU4JarhEKnq/5gNBMf9r4r3OcMAPZG6owB4j4acG+bMDX7emSQMyAHtgjQOPz8RNjwsEQjwOH0+g/+QRN3X9qsdgwIYTtAcknPrW1i/H26HZA4hgGWKX5RQrg1uqp0hRfrGuSflCmeXeANqsK7uhzVa33jn19GZTveo7ZKg7ZWLh0JOr/MURMHl+uX2WShlSJlX8R+A6ZE4argz/v+NLPwll64RefjRHPVRXIFSc7AadwNW+dLMl/8EZILN4L1wktGS8PE36Wv2EIjhByT1zsYXvTJt4sB0iqeT5ALuTNS2UoMx87NtQee2aNQbnunXLRxTSf5zuIpNjkMhadsuCCzNg=

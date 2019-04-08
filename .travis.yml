@@ -1,5 +1,8 @@
 language: php
 addons:
+  sonar:
+    login: "f4098ada41c189f4014e48e89c5e4fe775ab7b4b"
+    organization: "juyn-github" # the key of the org you chose at step #3
   sonarcloud:
     projectKey: "laravel-birthlist"
     host.url: "https://sonarcloud.io"

@@ -7,15 +7,17 @@ class CreateWishTable extends Migration {
 
 	public function up()
 	{
-		Schema::create('Wish', function(Blueprint $table) {
+		Schema::create('wish', function(Blueprint $table) {
 			$table->increments('id');
 			$table->timestamps();
-			$table->integer('product')->unsigned()->index();
+			$table->integer('product_id')->unsigned()->index();
+			$table->integer('user_id')->unsigned() ->index();
+			$table->integer('quantity');
 		});
 	}
 
 	public function down()
 	{
-		Schema::drop('Wish');
+		Schema::drop('wish');
 	}
 }

@@ -5,7 +5,10 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+/**
+ * @property mixed $id
+ */
+class User extends \TCG\Voyager\Models\User
 {
     use Notifiable;
 
@@ -40,5 +43,10 @@ class User extends Authenticatable
         }
 
         return $check;
+    }
+
+    public function isAdmin()
+    {
+        return $this->hasRole('admin');
     }
 }
